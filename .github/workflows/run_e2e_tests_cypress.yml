@@ -1,0 +1,46 @@
+name: Fuctional Testing
+on: 
+  workflow_dispatch:
+    inputs:
+      overload_UAT_env:
+        type: choice
+        description: 'overload testing environement (UAT default)'
+        required: false
+        options:
+        - UAT
+        - SIT
+      notify_slack:
+        type: boolean
+        description: 'notify in slack'
+        required: false
+
+jobs:
+  cypress-dependancies:
+    runs-on: [self-hosted, Linux, standard]
+    steps:
+      - name: Dependancies
+        uses: actions/checkout@v4
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
+  cypress-intall:
+    runs-on : [self-hosted, Linux, standard]
+    steps:
+      - name: Cypress install
+        uses: cypress-io/github-action@v6
+        with:
+          # Disable running of tests within install job
+          runTests: false
+          build: npm run build
+  cypress-run:
+    runs-on : [self-hosted, Linux, standard]
+    needs: cypress-intall
+    steps:
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          record: true
+          build: npm run build
+          start: npm start
+          browser: chrome
+        env:
+          CYPRESS_baseUrl: 'https://qrmanager-front-4qpmqv-uat1.gke-mutu-nprd-mxiq.priv.manawa.adeo.cloud/'

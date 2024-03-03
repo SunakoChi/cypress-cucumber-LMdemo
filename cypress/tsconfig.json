@@ -1,0 +1,16 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "types": [
+      "cypress-file-upload",
+      "cypress-xpath",
+      "cypress",
+      "cypress-real-events"
+    ],
+    "paths": {
+      "~/*": ["cypress/*"],
+    }
+  },
+  "exclude": ["dist", "node_modules"],
+  "include": ["./**/*.ts"],
+}

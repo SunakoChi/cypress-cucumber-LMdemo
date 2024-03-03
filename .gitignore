@@ -1,0 +1,18 @@
+# Dependency directories cypress
+node_modules/
+target/
+cypress/screenshots/
+videos
+*.mp4
+*.jpg
+.vscode*
+.eslintignore
+.eslintrc
+.env.local
+.ndjson*
+
+#package-lock
+package-lock.json
+
+#cucumer generated files
+cucumber-messages.ndjson
