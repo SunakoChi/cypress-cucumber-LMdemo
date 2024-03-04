@@ -26,8 +26,8 @@ export const searchbarTypeText = (text: string) => {
  * Press a key
  * @param key Name of the key
  */
-export const pressKeyEnter = () => {
-  homePageElement.searchbarInput().type('enter')
+export const pressKey = (keyname: string) => {
+  homePageElement.searchbarInput().type("{"+keyname+"}")
 };
 
 /**
@@ -35,5 +35,5 @@ export const pressKeyEnter = () => {
  * @param key Name of the key
  */
 export const clickSearchIcon = () => {
-  homePageElement.searchIcon()
+  homePageElement.searchIcon().click()
 };

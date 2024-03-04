@@ -1,6 +1,6 @@
 // Import of cucumber tags for Gherkin syntax
 import { Given, Then, When } from '@badeball/cypress-cucumber-preprocessor'
-import { clickSearchIcon, closeCookiesPopin, pressKeyEnter, searchbarTypeText } from '~/integration/pages/homePage/homePage'
+import { clickSearchIcon, closeCookiesPopin, pressKey, searchbarTypeText } from '~/integration/pages/homePage/homePage'
 
 
 Given('a user on the homepage',() => {
@@ -12,8 +12,8 @@ When('I type {string} in the searchbar', (text : string) => {
   searchbarTypeText(text)
   });
 
-When('press enter', () => {
-  pressKeyEnter()
+When('press {string}', (keyname : string) => {
+  pressKey(keyname)
   })
 
 When('click on the search icon', () => {
@@ -21,6 +21,6 @@ When('click on the search icon', () => {
   })
 
 Then('my search results are returned', () => {
-  cy.url()
+  cy.url().should('contain.text','search?q=')
   //Assertion to implement
   })
