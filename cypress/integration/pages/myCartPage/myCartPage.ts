@@ -1,7 +1,7 @@
-import LoginPageElements from "./loginPageElements";
+import MyCartPageElements from "./myCartPageElements";
 
 //initalise class value
-const loginPageElement = new LoginPageElements
+const myCartPageElement = new MyCartPageElements
 
 /**
  * Access base URL and check if user is logged in
@@ -11,13 +11,6 @@ export const goToUrl = (url: string) => {
   cy.visit(url)
 };
 
-/**
- * Click on the "Connexion via SSO button"
- * @param url 
- */
-export const accessLoginPage = () => {
-    loginPageElement.accessLoginButton().click()
-};
 
 /**
  * Input login information and validate

@@ -65,6 +65,7 @@ export default defineConfig({
     },
   },
   e2e: {
+    baseUrl: 'https://www.leroymerlin.fr',
     specPattern: '**/*.feature',
     chromeWebSecurity: false,
     experimentalInteractiveRunEvents: true,
